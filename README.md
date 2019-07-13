@@ -1,2 +1,2 @@
 # static-webpack-pages
-a exempla of static pages using webpack
+a exemple of static pages using webpack

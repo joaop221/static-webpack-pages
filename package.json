@@ -1,12 +1,11 @@
 {
-    "name": "static-pages",
+    "name": "static-webpack-pages",
     "version": "1.0.0",
     "description": "a exempla of static pages using webpack",
     "main": "index.js",
     "scripts": {
         "test": "test",
-        "build:dev": "webpack --mode development",
-        "build:prd": "webpack --mode production"
+        "build": "webpack"
     },
     "repository": {
         "type": "git",
