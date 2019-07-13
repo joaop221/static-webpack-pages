@@ -1,0 +1,36 @@
+{
+    "name": "static-pages",
+    "version": "1.0.0",
+    "description": "a exempla of static pages using webpack",
+    "main": "index.js",
+    "scripts": {
+        "test": "test",
+        "build:dev": "webpack --mode development",
+        "build:prd": "webpack --mode production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joaop221/static-webpack-pages.git"
+    },
+    "keywords": [
+        "webpack",
+        "static-webpack"
+    ],
+    "author": "joaop221",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/joaop221/static-webpack-pages/issues"
+    },
+    "homepage": "https://github.com/joaop221/static-webpack-pages#readme",
+    "devDependencies": {
+        "@babel/preset-typescript": "^7.3.3",
+        "@types/node": "^12.6.2",
+        "@types/webpack": "^4.4.35",
+        "@types/webpack-dev-server": "^3.1.7",
+        "source-map-loader": "^0.2.4",
+        "ts-node": "^8.3.0",
+        "typescript": "^3.5.3",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.5"
+    }
+}
