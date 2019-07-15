@@ -47,8 +47,7 @@ const config: webpack.Configuration = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js',
-
+        filename: '[name].bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -61,7 +60,7 @@ const config: webpack.Configuration = {
             }
         }),
         new MiniCssExtractPlugin({
-
+            filename: 'main.css'
         })
     ]
 };
