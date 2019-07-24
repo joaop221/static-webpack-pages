@@ -27,6 +27,7 @@
         "@babel/preset-env": "^7.5.4",
         "@babel/preset-typescript": "^7.3.3",
         "@types/html-webpack-plugin": "^3.2.1",
+        "@types/lodash": "^4.14.136",
         "@types/mini-css-extract-plugin": "^0.2.1",
         "@types/node": "^12.6.2",
         "@types/webpack": "^4.4.35",
@@ -40,9 +41,15 @@
         "source-map-loader": "^0.2.4",
         "style-loader": "^0.23.1",
         "ts-node": "^8.3.0",
+        "tslint": "^5.18.0",
+        "tslint-webpack-plugin": "^2.1.0",
         "typescript": "^3.5.3",
         "webpack": "^4.35.3",
         "webpack-cli": "^3.3.5",
         "webpack-dev-server": "^3.7.2"
+    },
+    "dependencies": {
+        "lodash": "^4.17.15",
+        "rxjs": "^6.5.2"
     }
 }

@@ -1,68 +1,72 @@
-import path from 'path';
-import webpack from 'webpack';
+import path from "path";
+import webpack from "webpack";
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TSLintPlugin from "tslint-webpack-plugin";
 
 const config: webpack.Configuration = {
-    mode: 'production',
     entry: {
-        main: './src/index.ts'
+        main: "./src/index.ts",
     },
+    mode: "production",
     module: {
         rules: [
             {
-                test: [/\.js$|\.ts$/],
                 exclude: /(node_modules)/,
+                test: [/\.js$|\.ts$/],
                 use: {
-                    loader: 'babel-loader',
+                    loader: "babel-loader",
                     options: {
                         presets: [
-                            '@babel/preset-env',
-                            '@babel/typescript'
-                        ]
-                    }
-                }
+                            "@babel/preset-env",
+                            "@babel/typescript",
+                        ],
+                    },
+                },
             },
             {
                 test: [/.css$|.scss$/],
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
             },
             {
                 test: [/.css$|.scss$/],
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ]
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['.ts', '.js']
+                    "css-loader",
+                    "sass-loader",
+                ],
+            },
+        ],
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "dist"),
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Webpack Static Pages',
-            template: './src/index.html',
             inject: true,
             minify: {
+                collapseWhitespace: false,
                 removeComments: true,
-                collapseWhitespace: false
-            }
+            },
+            template: "./src/index.html",
+            title: "Webpack Static Pages",
         }),
         new MiniCssExtractPlugin({
-            filename: 'main.css'
-        })
-    ]
+            filename: "main.css",
+        }),
+        new TSLintPlugin({
+            files: ["./src/**/*.ts"],
+        }),
+    ],
+    resolve: {
+        extensions: [".ts", ".js"],
+    },
 };
 
 export default config;
