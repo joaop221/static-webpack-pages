@@ -26,7 +26,9 @@
         "@babel/core": "^7.5.4",
         "@babel/preset-env": "^7.5.4",
         "@babel/preset-typescript": "^7.3.3",
+        "@reactivex/rxjs": "^6.5.2",
         "@types/html-webpack-plugin": "^3.2.1",
+        "@types/jquery": "^3.3.30",
         "@types/lodash": "^4.14.136",
         "@types/mini-css-extract-plugin": "^0.2.1",
         "@types/node": "^12.6.2",
@@ -49,6 +51,7 @@
         "webpack-dev-server": "^3.7.2"
     },
     "dependencies": {
+        "jquery": "^3.4.1",
         "lodash": "^4.17.15",
         "rxjs": "^6.5.2"
     }
