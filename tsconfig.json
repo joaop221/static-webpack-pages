@@ -11,7 +11,10 @@
         "allowJs": true,
         "noEmit": true,
         "strict": true,
-        "baseUrl": "."
+        "baseUrl": ".",
+        "plugins": [
+            { "name": "typescript-tslint-plugin" }
+        ]
     },
     "include": [
         "src/**/*"

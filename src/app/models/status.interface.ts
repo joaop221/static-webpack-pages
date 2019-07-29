@@ -1,9 +1,11 @@
 export class Status {
-    public disabled: number[];
-    public active: boolean;
+    disabled: number[];
+    runnig: boolean;
+    active: boolean;
 
-    constructor(disabled: number[], active: boolean) {
-        this.disabled = disabled;
-        this.active = active;
+    constructor() {
+        this.disabled = [];
+        this.runnig = false;
+        this.active = false;
     }
 }

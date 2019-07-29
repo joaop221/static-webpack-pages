@@ -1,6 +1,3 @@
-import { App } from "./app/app";
-import "./main.scss";
+import './main.scss';
 
-const app = new App();
-// tslint:disable-next-line: no-console
-console.log(app.load());
+// start a new app and save status
