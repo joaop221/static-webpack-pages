@@ -1,3 +1,6 @@
+import { App } from './app/app';
+
 import './main.scss';
 
-// start a new app and save status
+const app = new App();
+app.load();

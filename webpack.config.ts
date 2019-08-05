@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TSLintPlugin from 'tslint-webpack-plugin';
@@ -11,7 +12,6 @@ const config: webpack.Configuration = {
         lists: './src/pages/lists/lists.ts',
         main: './src/index.ts',
     },
-    mode: 'production',
     module: {
         rules: [
             {
@@ -29,8 +29,15 @@ const config: webpack.Configuration = {
             },
             {
                 test: [/.css$|.scss$/],
-                use: [
-                    MiniCssExtractPlugin.loader,
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                            options: {
+                                hmr: process.env.NODE_ENV === 'development',
+                                reloadAll: true,
+                            },
+                        },
+                    },
                     'css-loader',
                     'sass-loader',
                 ],
@@ -42,14 +49,14 @@ const config: webpack.Configuration = {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+        new webpack.DefinePlugin({
+            service: 'http://mocky.io/v2/',
+        }),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             chunks: ['main', 'lists'],
             filename: 'lists.html',
             inject: 'body',
-            minify: {
-                collapseWhitespace: false,
-                removeComments: true,
-            },
             template: './src/pages/lists/lists.html',
             title: 'Lists Static Pages',
         }),
@@ -57,10 +64,6 @@ const config: webpack.Configuration = {
             chunks: ['main', 'index'],
             filename: 'index.html',
             inject: 'body',
-            minify: {
-                collapseWhitespace: false,
-                removeComments: true,
-            },
             template: './src/pages/index.html',
             title: 'Webpack Static Pages',
         }),
