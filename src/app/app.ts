@@ -1,23 +1,8 @@
-import { ReplaySubject } from 'rxjs';
 
-import { ajax } from 'rxjs/ajax';
-import { take } from 'rxjs/operators';
+import { Subject } from 'rxjs/internal/Subject';
 
-import { Status } from './models/status.interface';
+import { Context } from './models/context.interface';
 
-export class App {
-    status: ReplaySubject<Status>;
-
-    constructor() {
-        this.status = new ReplaySubject(1);
-    }
-
-    load() {
-        ajax('http://mocky.io/v2/5d46156f3200000e00ae8be0').pipe(take(1))
-            .subscribe((data) => {
-                this.status.next({ ...data.response, runnig: true });
-            }, () => {
-                this.status.next(new Status());
-            });
-    }
-}
+export const app = () => ({
+    createContext: <T>() => ({ data: new Subject<T>()} as Context<T>),
+});
