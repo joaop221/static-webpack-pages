@@ -6,11 +6,15 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TSLintPlugin from 'tslint-webpack-plugin';
 
+import * as packages from './package.json';
+
+const devMode = process.env.NODE_ENV !== 'production';
 const config: webpack.Configuration = {
     entry: {
         index: './src/pages/index.ts',
         lists: './src/pages/lists/lists.ts',
         main: './src/index.ts',
+        vendor: Object.keys(packages.dependencies),
     },
     module: {
         rules: [
@@ -28,14 +32,12 @@ const config: webpack.Configuration = {
                 },
             },
             {
-                test: [/.css$|.scss$/],
+                test: /\.(sa|sc|c)ss$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
-                    options: {
-                            options: {
-                                hmr: process.env.NODE_ENV === 'development',
-                                reloadAll: true,
-                            },
+                        options: {
+                            hmr: !devMode,
+                            reloadAll: true,
                         },
                     },
                     'css-loader',
@@ -45,13 +47,10 @@ const config: webpack.Configuration = {
         ],
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: devMode ? '[name].bundle.js' : '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-        new webpack.DefinePlugin({
-            service: 'http://mocky.io/v2/',
-        }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             chunks: ['main', 'lists'],
@@ -69,18 +68,10 @@ const config: webpack.Configuration = {
         }),
         new MiniCssExtractPlugin({
             chunkFilename: 'main',
-            filename: '[name].css',
-        }),
-        new MiniCssExtractPlugin({
-            chunkFilename: 'index',
-            filename: '[name].css',
-        }),
-        new MiniCssExtractPlugin({
-            chunkFilename: 'lists',
-            filename: '[name].css',
+            filename: devMode ? 'styles.bundle.css' : 'styles.[hash].css',
         }),
         new TSLintPlugin({
-            files: ['./src/**/*.ts'],
+            files: ['./src/**/*.ts', 'webpack.*.ts'],
         }),
     ],
     resolve: {

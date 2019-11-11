@@ -5,6 +5,11 @@ import config from './webpack.config';
 
 const devConfig: webpack.Configuration = merge(config, {
     mode: 'production',
+    plugins: [
+        new webpack.DefinePlugin({
+          service: 'https://myproduction/endpoint',
+      }),
+    ],
 });
 
 export default devConfig;

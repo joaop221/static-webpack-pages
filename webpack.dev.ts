@@ -9,6 +9,11 @@ const devConfig: webpack.Configuration = merge(config, {
     },
     devtool: 'inline-source-map',
     mode: 'development',
+    plugins: [
+        new webpack.DefinePlugin({
+          service: 'http://mocky.io/v2/',
+      }),
+    ],
 });
 
 export default devConfig;
