@@ -1,59 +1,61 @@
 {
-    "name": "static-webpack-pages",
-    "version": "1.0.0",
-    "description": "a exemple of static pages using webpack",
-    "main": "src/index.ts",
-    "scripts": {
-        "test": "test",
-        "build": "webpack --config webpack.prod.ts",
-        "start": "webpack-dev-server --open --config webpack.dev.ts"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/joaop221/static-webpack-pages.git"
-    },
-    "keywords": [
-        "webpack",
-        "static-webpack"
-    ],
-    "author": "joaop221",
-    "license": "GPL-3.0",
-    "bugs": {
-        "url": "https://github.com/joaop221/static-webpack-pages/issues"
-    },
-    "homepage": "https://github.com/joaop221/static-webpack-pages#readme",
-    "devDependencies": {
-        "@babel/core": "^7.5.4",
-        "@babel/preset-env": "^7.5.4",
-        "@babel/preset-typescript": "^7.3.3",
-        "@reactivex/rxjs": "^6.5.2",
-        "@types/clean-webpack-plugin": "^0.1.3",
-        "@types/html-webpack-plugin": "^3.2.1",
-        "@types/lodash": "^4.14.136",
-        "@types/mini-css-extract-plugin": "^0.2.1",
-        "@types/node": "^12.6.2",
-        "@types/webpack": "^4.4.35",
-        "@types/webpack-dev-server": "^3.1.7",
-        "@types/webpack-merge": "^4.1.5",
-        "babel-loader": "^8.0.6",
-        "clean-webpack-plugin": "^3.0.0",
-        "css-loader": "^3.0.0",
-        "html-webpack-plugin": "^3.2.0",
-        "mini-css-extract-plugin": "^0.7.0",
-        "node-sass": "^4.12.0",
-        "sass-loader": "^7.1.0",
-        "source-map-loader": "^0.2.4",
-        "ts-node": "^8.3.0",
-        "tslint": "^5.18.0",
-        "tslint-webpack-plugin": "^2.1.0",
-        "typescript": "^3.5.3",
-        "webpack": "^4.35.3",
-        "webpack-cli": "^3.3.5",
-        "webpack-dev-server": "^3.7.2",
-        "webpack-merge": "^4.2.1"
-    },
-    "dependencies": {
-        "lodash": "^4.17.15",
-        "rxjs": "^6.5.2"
-    }
+  "name": "static-webpack-pages",
+  "version": "1.0.0",
+  "description": "a exemple of static pages using webpack",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack --config webpack.prod.ts",
+    "start": "webpack-dev-server --open --config webpack.dev.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaop221/static-webpack-pages.git"
+  },
+  "keywords": [
+    "webpack",
+    "static-webpack"
+  ],
+  "author": "joaop221",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/joaop221/static-webpack-pages/issues"
+  },
+  "homepage": "https://github.com/joaop221/static-webpack-pages#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@reactivex/rxjs": "^6.5.2",
+    "@types/clean-webpack-plugin": "^0.1.3",
+    "@types/html-webpack-plugin": "^3.2.1",
+    "@types/jest": "^24.0.23",
+    "@types/lodash": "^4.14.136",
+    "@types/mini-css-extract-plugin": "^0.2.1",
+    "@types/node": "^12.6.2",
+    "@types/webpack": "^4.4.35",
+    "@types/webpack-dev-server": "^3.1.7",
+    "@types/webpack-merge": "^4.1.5",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "tslint-webpack-plugin": "^2.1.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "rxjs": "^6.5.2"
+  }
 }
